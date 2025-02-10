@@ -24,6 +24,8 @@ export async function toggleTodo(todo: Todo): Promise<Todo> {
         setTimeout(res, 1000);
     })
 
+    // throw new Error('Could not toggle todo.');
+
     const res = await fetch(`${API_URL}/todos/${todo.id}`, {
         method: "PUT",
         headers: {

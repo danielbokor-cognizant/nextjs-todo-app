@@ -1,15 +1,16 @@
 "use client"
 
-import { toggleTodo } from "@/actions";
 import { Todo } from "@/types"
 
 interface TodoItemProps {
     todo: Todo;
+    onToggle: (todo: Todo) => Promise<void>
 }
 
-export function TodoItem({ todo }: TodoItemProps) {
+export function TodoItem({ todo, onToggle }: TodoItemProps) {
     const handleChange = async () => {
-        await toggleTodo(todo);
+        // await toggleTodo(todo);
+        await onToggle(todo);
     }
 
     return (
