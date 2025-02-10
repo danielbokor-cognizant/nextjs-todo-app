@@ -53,6 +53,8 @@ export async function addTodo(data: FormData): Promise<void> {
         setTimeout(res, 1000);
     })
 
+    // throw new Error("Failed to add todo.")
+
     const title = data.get("title") as string;
 
     const res = await fetch(`${API_URL}/todos`, {
