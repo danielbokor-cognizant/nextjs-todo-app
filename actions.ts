@@ -7,7 +7,7 @@ const { API_URL } = process.env;
 
 export async function fetchTodos(): Promise<Todo[]> {
     await new Promise((res) => {
-        setTimeout(res, 500);
+        setTimeout(res, 1000);
     })
 
     const res = await fetch(`${API_URL}/todos`);
@@ -21,7 +21,7 @@ export async function fetchTodos(): Promise<Todo[]> {
 
 export async function toggleTodo(todo: Todo): Promise<Todo> {
     await new Promise((res) => {
-        setTimeout(res, 500);
+        setTimeout(res, 1000);
     })
 
     const res = await fetch(`${API_URL}/todos/${todo.id}`, {
@@ -44,4 +44,31 @@ export async function toggleTodo(todo: Todo): Promise<Todo> {
     revalidatePath("/");
 
     return newTodo;
+}
+
+export async function addTodo(data: FormData): Promise<void> {
+    await new Promise((res) => {
+        setTimeout(res, 1000);
+    })
+
+    const title = data.get("title") as string;
+
+    const res = await fetch(`${API_URL}/todos`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            title,
+            completed: false,
+        }),
+    })
+
+    if (!res.ok) {
+        throw new Error("Failed to add todo.")
+    }
+
+    await res.json();
+
+    revalidatePath("/");
 }

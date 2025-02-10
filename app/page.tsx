@@ -1,3 +1,4 @@
+import { AddTodoForm } from "@/components/AddTodoForm";
 import { TodoList } from "@/components/TodoList";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <main className="container mx-auto p-4 max-w-md">
       <h1 className="text-2xl font-bold mb-4">Todos:</h1>
+      <AddTodoForm />
       <Suspense fallback={<TodoListSkeleton/>}>
         <TodoList />
       </Suspense>
