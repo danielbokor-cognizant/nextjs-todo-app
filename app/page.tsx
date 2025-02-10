@@ -15,7 +15,11 @@ export default function Home() {
 }
 
 function TodoListSkeleton() {
-  return <div className="space-y-2">
+  return <div className="space-y-4">
+    <div key={`add-todo-skeleton`} className="flex space-x-2">
+        <Skeleton className="h-8 w-full bg-gray-300" />
+        <Skeleton className="w-12 h-8 rounded bg-gray-300" />
+      </div>
     {[...Array(5)].map((_, i) => (
       <div key={`todo-skeleton-${i}`} className="flex space-x-2">
         <Skeleton className="w-4 h-4 rounded bg-gray-300" />
