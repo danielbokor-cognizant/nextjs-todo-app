@@ -4,7 +4,7 @@ import { fetchTodos } from "@/actions";
 export async function TodoList() {
     const todos = await fetchTodos();
 
-    return (<ul>
+    return (<ul className="space-y-2">
         {todos.map(todo => <TodoItem key={todo.id} todo={todo}/>)}
     </ul>)
 }

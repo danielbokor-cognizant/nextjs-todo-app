@@ -8,9 +8,9 @@ interface TodoItemProps {
 
 export function TodoItem({ todo }: TodoItemProps) {
     return (
-        <li>
+        <li className="flex items-center space-x-2">
             <input id={todo.id} type="checkbox" checked={todo.completed} onChange={() => {}} />
-            <label htmlFor={todo.id} className={`${todo.completed ? "line-through text-gray-500" : ""}`}>{todo.title}</label>
+            <label htmlFor={todo.id} className={`flex-grow cursor-pointer ${todo.completed ? "line-through text-gray-500" : ""}`}>{todo.title}</label>
         </li>
     );
 }
