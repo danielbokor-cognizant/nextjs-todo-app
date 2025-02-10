@@ -48,6 +48,7 @@ export function OptimisticTodoList({ initialTodos }: OptimisticTodoListProps) {
         try {
             await toggleTodo(todo);
         } catch (e) {
+            console.error(e);
             startTransition(() => {
                 setOptimisticTodo({
                     type: "TOGGLE_TODO",
@@ -76,6 +77,7 @@ export function OptimisticTodoList({ initialTodos }: OptimisticTodoListProps) {
         try {
             await addTodo(data)
         } catch (e) {
+            console.error(e);
             startTransition(() => {
                 setOptimisticTodo({
                     type: "REMOVE_TODO",
